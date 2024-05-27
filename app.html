@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+	<title>Celebrity Face Prediction</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='app.css')}}">
+</head>
+<body>
+	<h1>Celebrity Face Prediction</h1>
+	<h3>Available Celebrities for Prediction</h3>
+	{% if celebrities %}
+		<div class="available-celebrities">
+			{% for celebrity in celebrities %}
+				<div class="celebrity">
+					<img src="{{url_for('static', filename=celebrity.img_location)}}">
+					{{celebrity.name}}
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+	<form class="upload-section" action="/" method="post" enctype="multipart/form-data">
+		<label for="image-upload">Upoad Celebrity Image:</label>
+		<input name="image-upload" type="file" required></input>
+		<button type="submit">Classify</button>
+	</form>
+	{% if classified_faces %}
+		{% if classified_faces|length>0 %}
+			<h3>Detected Celebrity Face Results:</h3>
+		{% else %}
+			<h3>Couldn't Detect Faces in the Image. Upload another Image with Clear Faces.</h3>
+		{% endif %}
+		<div class="classified-faces">
+			{% for face in classified_faces %}
+				<div class="predicted-face">
+					<img src={{face.face_img}}>
+					<div class="face-result">
+						Predicted Celebrity: <b>{{face.face_name}}</b>
+						<br>Probability: {{face.face_proba*100}}%
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+	{% if error %}
+		<p class="error">{{error}}</p>
+	{% endif %}
+</body>
+</html>
