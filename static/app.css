@@ -1,0 +1,103 @@
+body {
+	background-color: purple;
+	padding: 10px 100px;
+}
+
+h1,
+h3 {
+	text-align: center;
+	color: lightgray;
+}
+
+h1 {
+	color: white;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+.available-celebrities {
+	display: grid;
+	width: 90%;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 50px;
+	grid-row-gap: 30px;
+	margin: 10px auto;
+}
+
+@media (max-width: 768px) {
+	.available-celebrities {
+		grid-template-columns: repeat(2, 1fr);
+		grid-column-gap: 20px;
+		grid-row-gap: 20px;
+		width: 95%;
+	}
+}
+
+.celebrity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	text-align: center;
+	color: white;
+}
+
+.celebrity img {
+	width: 100%;
+	max-width: 200px;
+	height: auto;
+	aspect-ratio: 1;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-bottom: 5px;
+}
+
+.celebrity-name {
+	text-align: center;
+}
+
+.upload-section {
+	color: white;
+	padding: 30px 30px;
+}
+
+.upload-section button {
+	color: white;
+	background-color: brown;
+	border: 1px solid black;
+}
+
+.classified-faces {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 30px;
+	grid-row-gap: 30px;
+	margin: 10px 50px;
+}
+
+.predicted-face {
+	width: 90%;
+	color: white;
+	display: flex;
+	gap: 10px;
+}
+
+.predicted-face img {
+	width: 40%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.predicted-face .face-result {
+	height: 100%;
+	box-sizing: border-box;
+	padding: 5px 5px;
+}
+
+.error {
+	text-align: center;
+	color: lightgray;
+	font-size: 100%;
+}
