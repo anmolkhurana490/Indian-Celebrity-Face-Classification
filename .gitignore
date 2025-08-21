@@ -1,3 +1,4 @@
 __pycache__
 .venv
 datasets/*/
+datasets/celebrity_face_data-anmol.csv
